@@ -7,9 +7,8 @@ RUN apt-get update \
 
 #Install SteamCMD
 RUN mkdir /usr/local/steam \
-    && cd /usr/local/steam
-
-RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
+    && cd /usr/local/steam \
+    && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
     && tar -xvzf steamcmd_linux.tar.gz
 
 #Now install ARK Survival Evolved
