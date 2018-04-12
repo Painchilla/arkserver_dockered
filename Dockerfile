@@ -3,7 +3,7 @@ FROM debian:stretch-slim
 RUN apt-get update \
     && apt upgrade -y \
     && dpkg --add-architecture i386 \
-    && apt-get install -y lib32gcc1
+    && apt-get install -y lib32gcc1 wget
 
 #Install SteamCMD
 RUN mkdir /usr/local/steam \
