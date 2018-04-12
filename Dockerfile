@@ -13,7 +13,7 @@ RUN mkdir /usr/local/steam \
 
 #Now install ARK Survival Evolved
 RUN mkdir -p /srv/ARK \
-    && steamcmd +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
+    && /usr/local/steam/steamcmd.sh +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
 
 #Preemptive Bugfixing 
 RUN echo "fs.file-max=100000" >> /etc/sysctl.conf \
