@@ -16,9 +16,9 @@ RUN mkdir -p /srv/ARK \
     && steamcmd +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
 
 #Preemptive Bugfixing 
-RUN echo "fs.file-max=100000" >> /etc/sysctl.conf \
+RUN cat "fs.file-max=100000" >> /etc/sysctl.conf \
     && sysctl -p /etc/sysctl.conf \
-    && echo "*               soft    nofile          1000000" >> /etc/security/limits.conf \
-    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
-    && echo "session required pam_limits.so" >> /etc/pam.d/common-session
+    && cat "*               soft    nofile          1000000" >> /etc/security/limits.conf \
+    && cat "*               hard    nofile          1000000" >> /etc/security/limits.conf \
+    && cat "session required pam_limits.so" >> /etc/pam.d/common-session
     
