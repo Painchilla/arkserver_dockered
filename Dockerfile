@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 #Update stuff:
 RUN apt-get update \
-    && apt upgrade \
+    && apt upgrade -y \
     && dpkg --add-architecture i386 \
     && apt-get install lib32gcc1
 
