@@ -12,8 +12,8 @@ RUN mkdir /usr/local/steam \
     && tar -xvzf steamcmd_linux.tar.gz
 
 #Now install ARK Survival Evolved
-RUN mkdir -p /srv/ARK \
-    && /usr/local/steam/steamcmd.sh +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
+#RUN mkdir -p /srv/ARK \
+#    && /usr/local/steam/steamcmd.sh +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
 
 #Preemptive Bugfixing 
 #RUN echo "fs.file-max=100000" >> /etc/sysctl.conf \
@@ -22,4 +22,4 @@ RUN mkdir -p /srv/ARK \
 #    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
-ENTRYPOINT /bin/bash
+ENTRYPOINT /bin/sh -c
