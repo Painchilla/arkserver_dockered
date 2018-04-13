@@ -22,4 +22,5 @@ FROM debian:stretch-slim
 #    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
-ENTRYPOINT ["/bin/sh"]
+ENTRYPOINT ["/bin/sh -c"]
+CMD ["bash"]
