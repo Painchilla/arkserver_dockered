@@ -1,17 +1,18 @@
-FROM debian:stretch
-#Update stuff:
+#FROM debian:stretch
+FROM ubuntu
+##Update stuff:
 #RUN apt-get update \
 #    && apt upgrade -y \
 #    && dpkg --add-architecture i386 \
 #    && apt-get install -y lib32gcc1 wget
 
-#Install SteamCMD
+##Install SteamCMD
 #RUN mkdir /usr/local/steam \
 #    && cd /usr/local/steam \
 #    && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
 #    && tar -xvzf steamcmd_linux.tar.gz
 
-#Now install ARK Survival Evolved
+##Now install ARK Survival Evolved
 #RUN mkdir -p /srv/ARK \
 #    && /usr/local/steam/steamcmd.sh +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
 
@@ -22,5 +23,5 @@ FROM debian:stretch
 #    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
-ENTRYPOINT ["/bin/sh -c"]
-CMD ["bash"]
+#ENTRYPOINT ["/srv/ARK/ARK\ Survival\ Evolved"]
+#CMD ["bash"]
