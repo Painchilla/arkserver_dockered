@@ -1,5 +1,5 @@
 FROM debian:stretch
-#FROM ubuntu
+
 ##Update stuff:
 RUN apt-get update \
     && apt upgrade -y \
@@ -23,7 +23,8 @@ RUN mkdir -p /srv/ARK \
 #    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
 
-RUN ls /srv/ARK -la && ls -la /srv/ARK/ARK\ Survival\ Evolved
+EXPOSE 27015/tcp
+EXPOSE 7778/udp
 
-#ENTRYPOINT ["/srv/ARK/ARK\ Survival\ Evolved"]
-#CMD ["/bin/sh -c bash"]
+ENTRYPOINT ["/srv/ARK/ShooterGame/Binaries/Linux/ShooterGameServer"]
+CMD ["TheIsland?listen?SessionName=DockeredServer -server -log"]
