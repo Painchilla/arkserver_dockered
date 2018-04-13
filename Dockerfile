@@ -23,3 +23,4 @@ RUN mkdir /usr/local/steam \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
 ENTRYPOINT /bin/sh -c
+CMD bash
