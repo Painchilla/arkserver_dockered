@@ -1,10 +1,5 @@
 FROM debian:stretch
 
-ENV ARK_SERVER_NAME=DockeredARK
-ENV ARK_SERVER_MAP=TheIsland
-ENV ARK_SERVER_ADMINPW=AdW1nP@55w0rD!
-ENV ARK_SERVER_MAXPLAYERS=12
-
 ##Update stuff:
 RUN apt-get update \
     && apt upgrade -y \
@@ -44,4 +39,4 @@ EXPOSE 27020/tcp
 
 #Starten des Servers
 ENTRYPOINT ["/srv/ARK/ShooterGame/Binaries/Linux/ShooterGameServer"]
-CMD ["$ARK_SERVER_MAP?listen?SessionName=$ARK_SERVER_NAME?ServerAdminPassword=$ARK_SERVER_ADMINPW?MaxPlayers=$ARK_SERVER_MAXPLAYERS"]
+CMD ["TheIsland?listen?SessionName=DockeredARK?ServerAdminPassword=AdW1nP@55w0rD!?MaxPlayers=24"]
