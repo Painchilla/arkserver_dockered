@@ -23,4 +23,4 @@ FROM debian:stretch-slim
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
 #ENTRYPOINT ["/bin/sh -c"]
-CMD ["ping localhost"]
+CMD ["sh -c bash"]
