@@ -22,5 +22,4 @@ RUN mkdir /usr/local/steam \
 #    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
-ENTRYPOINT ["/bin/sh -c"]
-CMD ["bash"]
+ENTRYPOINT ["/bin/sh -c bash"]
