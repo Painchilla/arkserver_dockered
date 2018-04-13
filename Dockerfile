@@ -1,5 +1,8 @@
 FROM debian:stretch
 
+ENV ARK_SERVER_NAME=DockeredARK
+ENV ARK_SERVER_MAP=TheIsland
+
 ##Update stuff:
 RUN apt-get update \
     && apt upgrade -y \
@@ -32,8 +35,8 @@ VOLUME /srv/ARK/ShooterGame/Saved/SavedArks
 #Auslagern der Config-Files in eigenes Volume
 VOLUME /srv/ARK/ShooterGame/Saved/Config/LinuxServer
 
-EXPOSE 27015/tcp
+EXPOSE 27015/udp
 EXPOSE 7778/udp
 
-ENTRYPOINT ["/srv/ARK/ShooterGame/Binaries/Linux/ShooterGameServer"]
-CMD ["TheIsland?listen?SessionName=DockeredServer -server -log"]
+ENTRYPOINT ["/srv/ARK/ShooterGame/Binaries/Linux/ShooterGameServer  -server -log"]
+CMD ["$ARK_SERVER_MAP?listen?SessionName=$ARK_SERVER_NAME"]
