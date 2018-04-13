@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:stretch
 #Update stuff:
 #RUN apt-get update \
 #    && apt upgrade -y \
@@ -22,5 +22,5 @@ FROM debian:stretch-slim
 #    && echo "*               hard    nofile          1000000" >> /etc/security/limits.conf \
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
-#ENTRYPOINT ["/bin/sh -c"]
-CMD ["sh -c bash"]
+ENTRYPOINT ["/bin/sh -c"]
+CMD ["bash"]
