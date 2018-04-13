@@ -24,4 +24,4 @@ FROM ubuntu
 #&& echo "session required pam_limits.so" >> /etc/pam.d/common-session
  
 #ENTRYPOINT ["/srv/ARK/ARK\ Survival\ Evolved"]
-#CMD ["bash"]
+CMD ["/bin/sh -c bash"]
