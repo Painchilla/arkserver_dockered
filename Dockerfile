@@ -16,7 +16,7 @@ RUN mkdir /usr/local/steam \
 RUN mkdir -p /srv/ARK \
     && /usr/local/steam/steamcmd.sh +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
 
-##Mountpoint for Mods-Folder: /srv/ARK/ShooterGame/Content/Mods (Make Sure Ragnarok and TheCenter and 11111 Mod are installed)
+##Mountpoint for Mods-Folder: /srv/ARK/ShooterGame/Content/Mods (Make Sure Ragnarok and TheCenter are installed if needed)
 ##Mountpoint for Config-Files: /srv/ARK/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 ##Mountpoint for Backup of Gamefiles: /srv/ARK/ShooterGame/Saved/SavedArks
 
