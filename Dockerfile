@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:stretch-slim as downloader
 
 ##Update stuff:
 RUN apt-get update \
@@ -19,6 +19,11 @@ RUN mkdir -p /srv/ARK \
 ##Mountpoint for Mods-Folder: /srv/ARK/ShooterGame/Content/Mods (Make Sure Ragnarok and TheCenter are installed if needed)
 ##Mountpoint for Config-Files: /srv/ARK/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 ##Mountpoint for Backup of Gamefiles: /srv/ARK/ShooterGame/Saved/SavedArks
+
+#Minimise Serving Image-Size by Just Copying all Files into an minimal alpine Linux.
+FROM alpine
+#Copy Server-Files
+COPY /srv/ARK /srv/ARK --from=downloader
 
 #Auslagern der SaveGames in eigenes Volume, sodass diese nicht verloren Gehen!
 VOLUME /srv/ARK/ShooterGame/Saved/SavedArks
