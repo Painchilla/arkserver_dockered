@@ -22,17 +22,16 @@ RUN mkdir -p /srv/ARK \
 
 #Minimise Serving Image-Size by Just Copying all Files into an minimal alpine Linux.
 FROM alpine
-#Copy Server-Files
+#Add dir for Serverfiles
+RUN mkdir -p /srv/ARK
+#Copy Serverfiles
 COPY /srv/ARK /srv/ARK --from=downloader
-
-#Auslagern der SaveGames in eigenes Volume, sodass diese nicht verloren Gehen!
+#Auslagern der SaveGames in eigenes Volume, sodass diese nicht verloren gehen (sollten)...
 VOLUME /srv/ARK/ShooterGame/Saved/SavedArks
-
 #Portfreigaben
 EXPOSE 27015/udp
 EXPOSE 7778/udp
 EXPOSE 27020/tcp
-
 #Starten des Servers
 ENTRYPOINT ["/srv/ARK/ShooterGame/Binaries/Linux/ShooterGameServer"]
 CMD ["TheIsland?listen?SessionName=DockeredARK?ServerAdminPassword=AdW1nP@55w0rD!?MaxPlayers=24"]
