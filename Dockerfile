@@ -10,11 +10,14 @@ RUN apt-get update \
 RUN mkdir /usr/local/steam \
     && cd /usr/local/steam \
     && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
-    && tar -xvzf steamcmd_linux.tar.gz
+    && tar -xzf steamcmd_linux.tar.gz
 
 ##Now install ARK Survival Evolved
 RUN mkdir -p /srv/ARK \
-    && /usr/local/steam/steamcmd.sh +login anonymous +force_install_dir /srv/ARK +app_update 376030 +quit
+    && /usr/local/steam/steamcmd.sh \
+        +login anonymous \
+        +force_install_dir /srv/ARK +app_update 376030 \
+        +quit
 
 ##Mountpoint for Mods-Folder: /srv/ARK/ShooterGame/Content/Mods (Make Sure Ragnarok and TheCenter are installed if needed)
 ##Mountpoint for Config-Files: /srv/ARK/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
