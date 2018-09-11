@@ -1,0 +1,22 @@
+This File Creates a Dedicated ARK Server with minimal Setup Overhead
+#The Docker Imaged is based on Debian:stretch-slim and comes with all needed Serverfiles
+#Fully Loaded it may take multiple Gigs of Space, so prepare your System. (I Recommend ~20GB for a small Install)
+
+version: '3.6'
+
+services:
+  ark:
+    restart: always
+    image: painchilla/ark-survival-evolved
+    ports:
+      - '0.0.0.0:27015:27015/udp'
+      - '0.0.0.0:7778:7778/udp'
+      - '0.0.0.0:27020:27020/tcp'
+      - '0.0.0.0:7777:7777/udp'
+    volumes:
+      - './SavedArks:/srv/ARK/ShooterGame/Saved/SavedArks'
+      - './config/GameUserSettings.ini:/srv/ARK/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini'
+      - './config/Game.ini:/srv/ARK/ShooterGame/Saved/Config/LinuxServer/Game.ini'
+      - './Mods/:/srv/ARK/ShooterGame/Content/Mods/'
+    command:
+      - 'TheIsland?listen?SessionName=WG-GG-ARK?MaxPlayers=14?ServerAdminPassword=MyCustomPassword'
