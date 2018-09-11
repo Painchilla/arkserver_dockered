@@ -2,7 +2,7 @@ This File Creates a Dedicated ARK Server with minimal Setup Overhead
 #The Docker Imaged is based on Debian:stretch-slim and comes with all needed Serverfiles
 #Fully Loaded it may take multiple Gigs of Space, so prepare your System. (I Recommend ~20GB for a small Install)
 
-version: '3.6'
+version: '2'
 
 services:
   ark:
