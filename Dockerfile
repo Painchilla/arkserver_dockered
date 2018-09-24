@@ -1,10 +1,14 @@
+#Use Debian Stretch-slim as base
 FROM debian:stretch-slim
 
-##Update stuff:
+##Update Packages and install 32bit gcc, wget and htop.
 RUN apt-get update \
     && apt upgrade -y \
     && dpkg --add-architecture i386 \
-    && apt-get install -y lib32gcc1 wget htop
+    && apt-get install -y lib32gcc1 wget htop \
+    && apt autoclean \
+    && rm -r /var/cache/apt
+    
 
 ##Install SteamCMD
 RUN mkdir /usr/local/steam \
@@ -12,7 +16,7 @@ RUN mkdir /usr/local/steam \
     && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
     && tar -xzf steamcmd_linux.tar.gz
 
-##Now install ARK Survival Evolved
+##Install ARK Survival Evolved
 RUN mkdir -p /srv/ARK \
     && /usr/local/steam/steamcmd.sh \
         +login anonymous \
@@ -23,14 +27,14 @@ RUN mkdir -p /srv/ARK \
 ##Mountpoint for Config-Files: /srv/ARK/ShooterGame/Saved/Config/LinuxServer/GameUserSettings.ini
 ##Mountpoint for Backup of Gamefiles: /srv/ARK/ShooterGame/Saved/SavedArks
 
-#Auslagern der SaveGames in eigenes Volume, sodass diese nicht verloren Gehen!
+#Create volume for ARK-saves.
 VOLUME /srv/ARK/ShooterGame/Saved/SavedArks
 
-#Portfreigaben
+#Expose all needed ports
 EXPOSE 27015/udp
 EXPOSE 7778/udp
 EXPOSE 27020/tcp
 
-#Starten des Servers
+#Start server
 ENTRYPOINT ["/srv/ARK/ShooterGame/Binaries/Linux/ShooterGameServer"]
 CMD ["TheIsland?listen?SessionName=DockeredARK?ServerAdminPassword=AdW1nP@55w0rD!?MaxPlayers=24"]
