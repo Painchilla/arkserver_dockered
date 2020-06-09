@@ -14,8 +14,7 @@ RUN apt-get update \
 RUN mkdir /usr/local/steam \
     && cd /usr/local/steam \
     && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
-    && tar -xzf steamcmd_linux.tar.gz \
-    && rm steamcmd_linx.tar.gz
+    && tar -xzf steamcmd_linux.tar.gz 
 
 ##Install ARK Survival Evolved
 RUN mkdir -p /srv/ARK \
