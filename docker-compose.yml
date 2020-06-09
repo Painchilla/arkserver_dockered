@@ -7,7 +7,8 @@ version: '2'
 services:
   ark:
     restart: always
-    image: painchilla/ark-survival-evolved
+    image: painchilla/ark-survival-evolved:latest
+    build: .
     ports:
       - '0.0.0.0:27015:27015/udp'
       - '0.0.0.0:7778:7778/udp'
