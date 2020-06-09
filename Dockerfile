@@ -1,5 +1,5 @@
-#Use Debian Stretch-slim as base
-FROM debian:stretch-slim
+#Use Debian Buster as base
+FROM debian:buster-slim
 
 ##Update Packages and install 32bit gcc, wget and htop.
 RUN apt-get update \
@@ -14,7 +14,8 @@ RUN apt-get update \
 RUN mkdir /usr/local/steam \
     && cd /usr/local/steam \
     && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz \
-    && tar -xzf steamcmd_linux.tar.gz
+    && tar -xzf steamcmd_linux.tar.gz \
+    && rm steamcmd_linx.tar.gz
 
 ##Install ARK Survival Evolved
 RUN mkdir -p /srv/ARK \
