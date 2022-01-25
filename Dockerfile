@@ -19,8 +19,8 @@ RUN mkdir /usr/local/steam \
 ##Install ARK Survival Evolved
 RUN mkdir -p /srv/ARK \
     && /usr/local/steam/steamcmd.sh \
-        +login anonymous \
         +force_install_dir /srv/ARK +app_update 376030 \
+        +login anonymous \
         +quit
 
 ##Mountpoint for Mods-Folder: /srv/ARK/ShooterGame/Content/Mods (Make Sure Ragnarok and TheCenter are installed if needed)
