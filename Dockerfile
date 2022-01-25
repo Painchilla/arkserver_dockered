@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt upgrade -y \
     && dpkg --add-architecture i386 \
     && apt-get install -y lib32gcc1 wget htop \
-    && apt autoclean \
+    && apt clean -y \
     && rm -r /var/cache/apt
     
 
